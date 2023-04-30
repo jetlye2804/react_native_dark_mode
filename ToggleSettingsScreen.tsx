@@ -13,7 +13,7 @@ const ToggleSettingsScreen = ({toggleTheme, themePreference, ...props}: ToggleSe
   const [selectedThemePreference, setSelectedThemePreference] = useState(themePreference);
 
   const isDarkMode = themePreference === 'on' ||
-  (themePreference === 'followSystem' && Appearance.getColorScheme() === 'dark');
+  (themePreference === 'system' && Appearance.getColorScheme() === 'dark');
 
   const handleThemePreferenceChange = (newThemePreference: string) => {
     setSelectedThemePreference(newThemePreference);
@@ -23,7 +23,7 @@ const ToggleSettingsScreen = ({toggleTheme, themePreference, ...props}: ToggleSe
   const data = [
     { label: 'On', value: 'on' },
     { label: 'Off', value: 'off' },
-    { label: 'Follow System', value: 'followSystem' },
+    { label: 'Follow System', value: 'system' },
   ];
 
   const backgroundColor = {

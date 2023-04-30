@@ -42,10 +42,10 @@ const HomeScreen = ({toggleTheme, themePreference}) => {
         <TouchableOpacity
           style={[
             styles.button,
-            themePreference === 'followSystem' && styles.activeButton,
+            themePreference === 'system' && styles.activeButton,
           ]}
-          onPress={() => toggleTheme('followSystem')}>
-          <Text style={[styles.buttonText, {color: themePreference === 'followSystem' ? 'white' : colors.primary}]}>
+          onPress={() => toggleTheme('system')}>
+          <Text style={[styles.buttonText, {color: themePreference === 'system' ? 'white' : colors.primary}]}>
             Follow System
           </Text>
         </TouchableOpacity>
@@ -58,7 +58,7 @@ const Stack = createStackNavigator();
 
 const App = () => {
   const [theme, setTheme] = useState(DefaultTheme);
-  const [themePreference, setThemePreference] = useState('followSystem');
+  const [themePreference, setThemePreference] = useState('system');
 
   const storeThemePreference = async (preference) => {
     try {
@@ -96,7 +96,7 @@ const App = () => {
     loadThemePreference();
 
     const subscription = Appearance.addChangeListener(({colorScheme}) => {
-      if (themePreference === 'followSystem') {
+      if (themePreference === 'system') {
         updateTheme(themePreference);
       }
     });

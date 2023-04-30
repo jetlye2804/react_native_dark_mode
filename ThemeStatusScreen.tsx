@@ -11,7 +11,9 @@ const ThemeStatusScreen = ({navigation, themePreference}: Props) => {
   const {colors} = useTheme();
 
   const isDarkMode = themePreference === 'on' ||
-  (themePreference === 'followSystem' && Appearance.getColorScheme() === 'dark');
+  (themePreference === 'system' && Appearance.getColorScheme() === 'dark');
+
+  const isSystem = themePreference === 'system';
 
   return (
     <View style={[styles.container, {backgroundColor: colors.background}]}>
@@ -22,9 +24,12 @@ const ThemeStatusScreen = ({navigation, themePreference}: Props) => {
         </Text>
       </View>
 
-
       <Text style={[styles.text, {color: colors.text}]}>
         Current Theme: {isDarkMode ? 'Dark' : 'Light'}
+      </Text>
+
+      <Text style={[styles.text, {color: colors.text}]}>
+        Follow System: {isSystem ? 'Yes' : 'No'}
       </Text>
 
       <Button
